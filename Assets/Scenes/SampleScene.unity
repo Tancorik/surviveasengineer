@@ -694,6 +694,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Engeneer
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 1048d5b7bb7ed114bbe70f81972b38b5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 404407149e4468e4cabac49a6f2e87da, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -844,6 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ff78ab8399bd6498b6f0c4265829fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 2023639951}
 --- !u!143 &1733178365
 CharacterController:
   m_ObjectHideFlags: 0
@@ -870,6 +876,12 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!95 &2023639951 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1048d5b7bb7ed114bbe70f81972b38b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 977997970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2133466856
 GameObject:
   m_ObjectHideFlags: 0

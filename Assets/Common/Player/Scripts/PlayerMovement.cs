@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
+
     private float _moveSpeed = 10f;
     private float _jumpForce = 10f;
     private float _gravityForce = -30f;
@@ -28,7 +31,9 @@ public class PlayerMovement : MonoBehaviour
         Jump();
 
         Vector3 inputDirect = GetInputDirect() * _moveSpeed;
-
+        _animator.SetFloat("ForwardSpeed", inputDirect.z);
+        _animator.SetFloat("FlankSpeed", inputDirect.x);
+        _animator.SetBool("isMove", inputDirect.magnitude != 0);
         inputDirect.y = _verticalForce;
         _characterController.Move(inputDirect * Time.deltaTime);
     }
@@ -39,8 +44,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_characterController.isGrounded)
         {
+            _animator.SetBool("isGround", true);
             if (_verticalForce < 0) _verticalForce = -2;
-            if (Input.GetButton("Jump")) _verticalForce = _jumpForce;
+            if (Input.GetButton("Jump"))
+            {
+                _verticalForce = _jumpForce;
+                _animator.SetTrigger("JumpTrigger");
+                _animator.SetBool("isGround", false);
+            }
         }
 
         _verticalForce += _gravityForce * Time.deltaTime;
