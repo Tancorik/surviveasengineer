@@ -188,7 +188,7 @@ Transform:
   m_GameObject: {fileID: 325336427}
   serializedVersion: 2
   m_LocalRotation: {x: -0.011918475, y: 0.9741511, z: -0.21928133, w: -0.052947503}
-  m_LocalPosition: {x: 0.5, y: 1.5, z: -3}
+  m_LocalPosition: {x: 0.5, y: 1.74, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -283,7 +283,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.5, z: -3}
+  m_LocalPosition: {x: 0.5, y: 1.74, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -813,6 +813,7 @@ GameObject:
   - component: {fileID: 1733178363}
   - component: {fileID: 1733178365}
   - component: {fileID: 1733178364}
+  - component: {fileID: 1733178366}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -829,7 +830,7 @@ Transform:
   m_GameObject: {fileID: 1733178362}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -849,7 +850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ff78ab8399bd6498b6f0c4265829fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 2023639951}
+  _playerAnimator: {fileID: 2023639951}
+  _cameraTarget: {fileID: 2133466857}
 --- !u!143 &1733178365
 CharacterController:
   m_ObjectHideFlags: 0
@@ -875,7 +877,23 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Center: {x: 0, y: 0.97, z: 0}
+--- !u!114 &1733178366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733178362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f4d1d61e58a0f46b8ea07488ee28bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraTarget: {fileID: 2133466857}
+  _topClamp: 70
+  _bottomClamp: -30
+  _rotateMultiplayer: 1
 --- !u!95 &2023639951 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1048d5b7bb7ed114bbe70f81972b38b5,
